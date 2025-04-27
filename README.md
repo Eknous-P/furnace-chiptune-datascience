@@ -6,8 +6,9 @@ find some interesting data from this playlist: https://www.youtube.com/playlist?
 
 ## steps?
 
-- [ ] acquire everything* from all the videos from the playlist
-- [ ] filter the garbage
+- [x] acquire everything* from all the videos from the playlist
+  - 4722 videos should be enough
+- [ ] filter the garbage and duplicates
 - [ ] get song data from the video data (name, length etc...)
 - [ ] do the pages
 - [ ] publish

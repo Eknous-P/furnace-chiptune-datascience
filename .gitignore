@@ -1,5 +1,5 @@
 secrets/
 secrets/*
 
-data.json
-test.txt
+data.csv
+log.txt

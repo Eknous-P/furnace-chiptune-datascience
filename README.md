@@ -1,4 +1,4 @@
-# datasci-project
+# furnace-chiptune-datascience
 
 ## goal
 

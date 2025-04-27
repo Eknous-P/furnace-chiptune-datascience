@@ -44,12 +44,20 @@ class api:
       credentials=self.credentials
     )
 
-  def requestPlaylist(self, playlist, count):
-    request = self.youtube.playlistItems().list(
-      part="snippet,contentDetails",
-      maxResults=count,
-      playlistId=playlist
-    )
+  def requestPlaylist(self, playlist, count, page):
+    if (len(page)>0):
+      request = self.youtube.playlistItems().list(
+        part="snippet,contentDetails",
+        maxResults=count,
+        playlistId=playlist,
+        pageToken=page
+      )
+    else:
+      request = self.youtube.playlistItems().list(
+        part="snippet,contentDetails",
+        maxResults=count,
+        playlistId=playlist
+      )
     response = request.execute()
     return response
 
@@ -65,16 +73,8 @@ class api:
 if __name__ == "__main__":
   yt = api(CREDENTIALS_FILE)
   yt.auth()
-
-  playlistJson = yt.requestPlaylist(ASH_PLAYLIST_ID, ASH_PLAYLIST_LEN)
-  vidIds=""
-  for i in playlistJson["items"]:
-    id = i["contentDetails"]["videoId"]
-    # print("video id: {0}".format(id))
-    vidIds+=id+','
-  vidIds = vidIds.removesuffix(',')
-
-  # print("ids {0}".format(vidIds))
+  nextPage=""
+  fetchCount=0
 
   csvfile = open(OUTPUT_FILE, "w")
   data = csv.writer(csvfile, delimiter=CSV_DELIM, quotechar=CSV_STR_DELIM, quoting=csv.QUOTE_NONNUMERIC)
@@ -87,36 +87,69 @@ if __name__ == "__main__":
     "vid-title",
     "vid-desc",
     "vid-uploaddate",
-    "vid-stat_view",
-    "vid-stat_like"
+    "vid-stat-view",
+    "vid-stat-like"
   ])
 
-  vids = yt.requestVideo(vidIds)
-  for i in vids["items"]:
-    print("video id {0}".format(i["id"]))
-    data.writerow([
-      i["id"],
-      i["snippet"]["channelTitle"],
-      i["snippet"]["title"],
-      i["snippet"]["description"],
-      i["snippet"]["publishedAt"],
-      i["statistics"]["viewCount"],
-      i["statistics"]["likeCount"]
-    ])
-    print(("VIDEO DETAILS FOR {0}:\n"+
-      " title: {1}\n"+
-      " author: {2}\n"+
-      " views: {3}\n"+
-      " likes: {4}\n"+
-      " uploadDate: {5}\n"
-      ).format(
-        i["id"],
-        i["snippet"]["title"],
-        i["snippet"]["channelTitle"],
-        i["statistics"]["viewCount"],
-        i["statistics"]["likeCount"],
-        i["snippet"]["publishedAt"]
-      ),file=logfile)
+  while (fetchCount<ASH_PLAYLIST_LEN):
+    playlistJson = yt.requestPlaylist(ASH_PLAYLIST_ID, ASH_PLAYLIST_LEN, nextPage)
+    vidIds=""
+    fetchCount += len(playlistJson["items"])
+    try:
+      nextPage = playlistJson["nextPageToken"]
+    except KeyError:
+      nextPage = ""
+    for i in playlistJson["items"]:
+      id = i["contentDetails"]["videoId"]
+      # print("video id: {0}".format(id))
+      vidIds+=id+','
+    vidIds = vidIds.removesuffix(',')
+
+    # print("ids {0}".format(vidIds))
+    v_id=""
+    v_chan_title=""
+    v_title=""
+    v_desc=""
+    v_upload=""
+    v_views=""
+    v_likes=""
+
+    vids = yt.requestVideo(vidIds)
+    for i in vids["items"]:
+      try:
+        v_id         = i["id"]
+        v_chan_title = i["snippet"]["channelTitle"]
+        v_title      = i["snippet"]["title"]
+        v_desc       = i["snippet"]["description"]
+        v_upload     = i["snippet"]["publishedAt"]
+        v_views      = i["statistics"]["viewCount"]
+        v_likes      = i["statistics"]["likeCount"]
+      except KeyError:
+        print("weird keyerror")
+      print("writing csv of video id {0}".format(v_id))
+      data.writerow([
+        v_id,
+        v_chan_title,
+        v_title,
+        v_desc,
+        v_upload,
+        v_views,
+        v_likes
+      ])
+      print(("VIDEO DETAILS FOR {0}:\n"+
+        " title: {1}\n"+
+        " author: {2}\n"+
+        " views: {3}\n"+
+        " likes: {4}\n"+
+        " uploadDate: {5}\n"
+        ).format(
+          v_id,
+          v_title,
+          v_chan_title,
+          v_views,
+          v_likes,
+          v_upload
+        ),file=logfile)
 
 logfile.close()
 csvfile.close()

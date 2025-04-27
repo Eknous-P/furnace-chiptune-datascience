@@ -1,5 +1,9 @@
 secrets/
 secrets/*
 
+resp_*
+
 data.csv
 log.txt
+
+.~lock*

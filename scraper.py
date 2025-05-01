@@ -11,7 +11,7 @@ import csv
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
 ASH_PLAYLIST_ID = "PLM98E7f5OROYhVKUz15lLpacLiQqmMU-v"
-ASH_PLAYLIST_LEN = 4737
+ASH_PLAYLIST_LEN = int(input("VERIFY THE PLAYLIST LENGTH AT https://www.youtube.com/playlist?list={0}: ".format(ASH_PLAYLIST_ID)))
 
 CREDENTIALS_FILE = "secrets/client_secret_file.json"
 OUTPUT_FILE = "data.csv"

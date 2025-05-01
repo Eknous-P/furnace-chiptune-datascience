@@ -5,31 +5,11 @@ execute:
 ---
 
 ```{r}
-source("cleaner.R")
+source("plots.R")
+library(patchwork)
 
-mus_clean_data|>ggplot(
-  aes(
-    x = vid_uploaddate,
-    y = n
-  )
-)+
-geom_point(
-  alpha = .4,
-  size = .1
-)+
-scale_x_date()
-
-mus_views_high|>ggplot(
-  aes(
-    y = vid_stat_view,
-    x = vid_auth
-  )
-)+
-geom_point(
-  alpha = 1,
-  size = 2,
-)
-
+# plot_upload_hist | plot_views_high
+plot_most_viewed
 
 
 ```

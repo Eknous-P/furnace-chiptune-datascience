@@ -9,6 +9,10 @@ log.txt
 .~lock*
 .Rproj.user
 *.Rproj
+.Rhistory
+.RData
 
 /.quarto/
 _site/
+
+test.png

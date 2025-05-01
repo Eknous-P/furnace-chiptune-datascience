@@ -88,7 +88,8 @@ if __name__ == "__main__":
     "vid-desc",
     "vid-uploaddate",
     "vid-stat-view",
-    "vid-stat-like"
+    "vid-stat-like",
+    "vid-stat-length"
   ])
 
   while (fetchCount<ASH_PLAYLIST_LEN):
@@ -113,6 +114,7 @@ if __name__ == "__main__":
     v_upload=""
     v_views=""
     v_likes=""
+    v_len=""
 
     vids = yt.requestVideo(vidIds)
     for i in vids["items"]:
@@ -124,9 +126,26 @@ if __name__ == "__main__":
         v_upload     = i["snippet"]["publishedAt"]
         v_views      = i["statistics"]["viewCount"]
         v_likes      = i["statistics"]["likeCount"]
+        v_len        = i["contentDetails"]["duration"]
       except KeyError:
         print("weird keyerror")
       print("writing csv of video id {0}".format(v_id))
+      print(("VIDEO DETAILS FOR {0}:\n"+
+        " title: {1}\n"+
+        " author: {2}\n"+
+        " views: {3}\n"+
+        " likes: {4}\n"+
+        " uploadDate: {5}\n"+
+        " length: {6}\n"
+        ).format(
+          v_id,
+          v_title,
+          v_chan_title,
+          v_views,
+          v_likes,
+          v_upload,
+          v_len
+        ),file=logfile)
       data.writerow([
         v_id,
         v_chan_title,
@@ -134,22 +153,9 @@ if __name__ == "__main__":
         v_desc,
         v_upload,
         v_views,
-        v_likes
+        v_likes,
+        v_len
       ])
-      print(("VIDEO DETAILS FOR {0}:\n"+
-        " title: {1}\n"+
-        " author: {2}\n"+
-        " views: {3}\n"+
-        " likes: {4}\n"+
-        " uploadDate: {5}\n"
-        ).format(
-          v_id,
-          v_title,
-          v_chan_title,
-          v_views,
-          v_likes,
-          v_upload
-        ),file=logfile)
 
 logfile.close()
 csvfile.close()

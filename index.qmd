@@ -10,6 +10,7 @@ library(patchwork)
 
 # plot_upload_hist | plot_views_high
 plot_most_viewed
-
+plot_most_liked
+plot_like_view_ratio
 
 ```

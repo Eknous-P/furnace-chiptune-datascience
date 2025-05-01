@@ -1,6 +1,7 @@
 library(tidyverse)
 library(readr)
 library(janitor)
+library(lubridate)
 
 mus_initial_data <- read_delim(
   "./data.csv",
@@ -11,6 +12,7 @@ mus_initial_data <- read_delim(
 mus_clean_data <- mus_initial_data|>
   mutate(
     vid_uploaddate = as.Date(vid_uploaddate),
+    vid_stat_length = seconds(period(vid_stat_length))
   )|>
   filter(
     vid_uploaddate > as.Date("2021-12-31") # remove videos from before furnace v0.2 released
@@ -19,7 +21,7 @@ mus_clean_data <- mus_initial_data|>
     vid_id != c(
       "_67sF4onNQM", # 8 bit guy second reality on x16 video
       "ZqJC7XBihm0" # revision demoparty '25 official video
-    )
+    ) || 0 # sneaky workaround ?
   )|>
   arrange(vid_uploaddate)|>                # arrange by upload date
   mutate(n = row_number(), .before=vid_id) # index chronologically

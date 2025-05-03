@@ -1,3 +1,6 @@
+#| message: false
+#| echo: false
+
 library(tidyverse)
 library(readr)
 library(janitor)
@@ -18,11 +21,11 @@ mus_clean_data <- mus_initial_data|>
   filter(
     vid_uploaddate > as.Date("2021-12-31") # remove videos from before furnace v0.2 released
   )|>
-  filter( # TODO: FIX
-    stri_detect_regex(vid_id, c(
-      "_67sF4onNQM", # 8 bit guy second reality on x16 video
-      "ZqJC7XBihm0" # revision demoparty '25 official video
-    ),TRUE) || 0
+  filter(
+    !(vid_id %in% c(
+      "_67sF4onNQM",
+      "ZqJC7XBihm0"
+    ))
   )|>
   arrange(vid_uploaddate)|>                # arrange by upload date
   mutate(n = row_number(), .before=vid_id) # index chronologically

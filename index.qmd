@@ -2,13 +2,20 @@
 title: "fur-ct-ds"
 execute:
   echo: false
+  message: false
 ---
 
 ```{r}
-#label: plots
-# TODO: HOW LABEL DIS??
+#| label: init
 source("plots.R")
 library(patchwork)
+v <- (mus_clean_data|>dim())[1]
+```
+
+Data from `r v` videos:
+
+```{r}
+#| label: plots
 
 # plot_upload_hist | plot_views_high
 plot_most_viewed

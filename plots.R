@@ -1,3 +1,6 @@
+#| message: false
+#| echo: false
+
 source("cleaner.R")
 library(rlang)
 

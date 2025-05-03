@@ -1,8 +1,7 @@
 # general:
   - give site name (not fur-cp-ds)
-  - silence `library` logs
   - more cleanup (duplicates, non-music)
-
+  
 # home
   - do
 

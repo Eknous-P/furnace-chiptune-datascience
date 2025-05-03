@@ -3,6 +3,7 @@
 
 source("cleaner.R")
 library(rlang)
+library(plotly)
 
 # PLOT UPLOAD HISTORY
 mus_clean_data|>ggplot(
@@ -40,11 +41,11 @@ theme(
   legend.title.position = "top"
 )+
 labs(
-  title = "Top 20 Most Viewed Videos in the Playlist",
+  title = NULL,
   y = "Video Title",
   x = "Video Views",
   fill = "Video Author (channel)"
-)-> plot_most_viewed
+) -> plot_most_viewed
 # PLOT MOST LIKED
 mus_clean_data|>
   arrange(vid_stat_like)|>

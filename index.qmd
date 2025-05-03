@@ -3,22 +3,40 @@ title: "fur-ct-ds"
 execute:
   echo: false
   message: false
+  warning: false
 ---
 
 ```{r}
 #| label: init
+options(scipen=999)
 source("plots.R")
 library(patchwork)
 v <- dim(mus_clean_data)[1]
 ```
 
-Data from `r v` videos:
+# Top
+
+furnace chiptune blah blah blah...
+
+this data blah blah blah...
+
+there are `r v` videos...
+
+## Data
 
 ```{r}
 #| label: plots
 
 # plot_upload_hist | plot_views_high
-plot_most_viewed
+ggplotly( # TODO: move elsewhere
+  p=plot_most_viewed,
+  dynamic_axes = TRUE,
+  tooltip = c(
+    "fill",
+    "x",
+    "y"
+  )
+)
 plot_most_liked
 plot_like_view_ratio
 

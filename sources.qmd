@@ -1,0 +1,9 @@
+---
+title: "Sources"
+---
+
+The videos come from this playlist: <!-- TODO: hyperlinks -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=H3pUCpADB6Cos4to&amp;list=PLM98E7f5OROYhVKUz15lLpacLiQqmMU-v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Data has been pulled with a Python script, using Google's Youtube APIs

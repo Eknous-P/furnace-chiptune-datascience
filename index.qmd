@@ -9,7 +9,7 @@ execute:
 #| label: init
 source("plots.R")
 library(patchwork)
-v <- (mus_clean_data|>dim())[1]
+v <- dim(mus_clean_data)[1]
 ```
 
 Data from `r v` videos:

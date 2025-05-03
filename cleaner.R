@@ -1,6 +1,3 @@
-#| message: false
-#| echo: false
-
 library(tidyverse)
 library(readr)
 library(janitor)

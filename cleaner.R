@@ -13,7 +13,8 @@ mus_initial_data <- read_delim(
 mus_clean_data <- mus_initial_data|>
   mutate(
     vid_uploaddate = as.Date(vid_uploaddate),
-    vid_stat_length = seconds(period(vid_stat_length))
+    vid_stat_length = seconds(period(vid_stat_length)),
+    vid_desc = replace_na(vid_desc,"")
   )|>
   filter(
     vid_uploaddate > as.Date("2021-12-31") # remove videos from before furnace v0.2 released

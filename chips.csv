@@ -14,7 +14,7 @@ Y8950,FM,
 YM3812,FM,OPL2
 YMF262,FM,OPL3
 YMF289B,FM,OPL3-L
-ESFM,FM,
+ESFM,FM,"ES.{0,4}"
 YMF278B,FM,OPL4
 SN76489,Square,
 T6W28,Square,
@@ -22,7 +22,7 @@ AY-3-8910,Square,
 AY-3-8914,Square,
 YM2149(F),Square,
 SAA1099,Square,
-PC Speaker,Square,i8253#no one calls it that
+PC Speaker,Square,"8253$"#no one calls it that
 Pokémon Mini,Square,
 VIC,Square,
 MSM5232,Square,
@@ -36,10 +36,10 @@ YMZ280B,Sample,
 RF5C68,Sample,
 MSM6258,Sample,
 MSM6295,Sample,
-SNES,Sample,SPC-700#pedants incoming
+SNES,Sample,"SPC-*700"#pedants incoming
 K007232,Sample,
 GA20,Sample,
-PCM DAC,Sample,GDAC
+PCM DAC,Sample,"^G.*DAC$"
 ES5506,Sample,OTTO
 K053260,Sample,
 C140,Sample,
@@ -68,7 +68,7 @@ POKEY,Specialized,
 TIA,Specialized,
 2A03,Specialized,NES
 VERA,Specialized,X16
-ZX Spectrum,Specialized,
+ZX Spectrum,Specialized,ZX
 SM8521,Specialized,
 Dummy,Specialized,
 tildearrow Sound Unit,Specialized,"[tT]SU"

@@ -21,11 +21,6 @@ library(plotly)
 library(htmlwidgets)
 
 source("cleaner.R")
-# source("chipHandler.R")
-source("plots/plot_topViews.R")
-source("plots/plot_topLikes.R")
-source("plots/plot_likeViewRatio.R")
-library(patchwork)
 
 v <- dim(mus_clean_data)[1]
 ```
@@ -38,16 +33,3 @@ this data blah blah blah...
 
 there are `r v` videos...
 
-## Data
-
-```{r}
-#| label: plots
-
-plot_topViews
-
-plot_topLikes
-
-plot_likeViewRatio
-
-
-```

@@ -25,12 +25,11 @@ source("chipHandler.R")
 source("plots/plot_topViews.R")
 source("plots/plot_topLikes.R")
 source("plots/plot_likeViewRatio.R")
-library(patchwork)
+source("plots/plot_perChipUsage.R")
 
-v <- dim(mus_clean_data)[1]
 ```
 
-## The Top
+# The Top
 
 The top 20 most viewed videos are:
 ```{r}
@@ -51,4 +50,11 @@ plot_likeViewRatio
 ```
 Kinda sad that the highest ratio comes from the lowest stats.<br>
 I guess it shows who has the most loyal audience?
+
+# The Chips
+
+```{r}
+plot_perChip
+```
+
 

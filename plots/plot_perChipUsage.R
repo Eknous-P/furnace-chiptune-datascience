@@ -1,14 +1,13 @@
-# setup plot data
-mus_clean_data|>
-  mutate( # plot hover tooltip
-    text = paste(
-      "<b>Author:</b> ", vid_auth,
-      "\n<b>Title:</b> ", vid_title
-    )
-  ) -> data_perChip
-
 ggplot(
-  data = data_perChip
+  data = chip_usage_data,
+  aes(
+    x = date,
+    y = count,
+    color = chip
+  )
+)+
+geom_path(
+  alpha=.9
 ) -> plot_perChip
 
 ggplotly(

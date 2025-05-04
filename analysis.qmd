@@ -1,0 +1,54 @@
+---
+title: "Data Analysis"
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: init
+
+options(scipen=999)
+
+library(tidyverse)
+library(readr)
+library(janitor)
+library(lubridate)
+library(stringi)
+library(rlang)
+library(plotly)
+library(htmlwidgets)
+
+source("cleaner.R")
+source("chipHandler.R")
+source("plots/plot_topViews.R")
+source("plots/plot_topLikes.R")
+source("plots/plot_likeViewRatio.R")
+library(patchwork)
+
+v <- dim(mus_clean_data)[1]
+```
+
+## The Top
+
+The top 20 most viewed videos are:
+```{r}
+#| label: topViews
+plot_topViews
+```
+And the top 20 most liked are:
+```{r}
+#| label: topLikes
+plot_topLikes
+```
+Obviously the most viewed videos will be the most liked.
+
+If we plot by the like / view ratio:
+```{r}
+#| label: topLikeViewRatio
+plot_likeViewRatio
+```
+Kinda sad that the highest ratio comes from the lowest stats.<br>
+I guess it shows who has the most loyal audience?
+

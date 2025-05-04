@@ -7,6 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: analysis.qmd
+        text: Data Analysis
       - href: sources.qmd
         text: Sources
       - about.qmd
@@ -19,7 +21,7 @@ format:
 
 # site outline:
 # home - general playlist info, surface level video stats
-# trends - popular cover srcs, chip usage
+# data analysis - popular cover srcs, chip usage
 # sources - the sause
 # about - about
 

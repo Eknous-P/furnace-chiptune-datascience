@@ -1,9 +1,3 @@
-library(tidyverse)
-library(readr)
-library(janitor)
-library(lubridate)
-library(stringi)
-
 mus_initial_data <- read_delim(
   "./data.csv",
   delim="/",
@@ -19,10 +13,11 @@ mus_clean_data <- mus_initial_data|>
   filter(
     vid_uploaddate > as.Date("2021-12-31") # remove videos from before furnace v0.2 released
   )|>
-  filter(
+  filter( # TODO: move to a file
     !(vid_id %in% c(
       "_67sF4onNQM",
-      "ZqJC7XBihm0"
+      "ZqJC7XBihm0",
+      "Iu4Gu3ldUr8"
     ))
   )|>
   arrange(vid_uploaddate)|>                # arrange by upload date

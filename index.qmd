@@ -8,9 +8,23 @@ execute:
 
 ```{r}
 #| label: init
+
 options(scipen=999)
-source("plots.R")
+
+library(tidyverse)
+library(readr)
+library(janitor)
+library(lubridate)
+library(stringi)
+library(rlang)
+library(plotly)
+library(htmlwidgets)
+
+source("cleaner.R")
+# source("chipHandler.R")
+source("plots/plot_topViews.R")
 library(patchwork)
+
 v <- dim(mus_clean_data)[1]
 ```
 
@@ -28,16 +42,7 @@ there are `r v` videos...
 #| label: plots
 
 # plot_upload_hist | plot_views_high
-ggplotly( # TODO: move elsewhere
-  p=plot_most_viewed,
-  dynamic_axes = TRUE,
-  tooltip = c(
-    "fill",
-    "x",
-    "y"
-  )
-)
-plot_most_liked
-plot_like_view_ratio
+plot_topViews
+
 
 ```

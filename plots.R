@@ -1,10 +1,3 @@
-#| message: false
-#| echo: false
-
-source("cleaner.R")
-library(rlang)
-library(plotly)
-
 # PLOT UPLOAD HISTORY
 mus_clean_data|>ggplot(
   aes(
@@ -18,34 +11,6 @@ geom_point(
 )+
 scale_x_date()-> plot_upload_hist
 # PLOT MOST VIEWED
-mus_clean_data|>
-arrange(vid_stat_view)|>
-tail(20)|>
-ggplot(
-  aes(
-    y = factor(vid_title, level = vid_title),
-    x = vid_stat_view,
-    fill = vid_auth
-  )
-)+
-scale_y_discrete(
-  labels = as_function(~ strtrim(.,20))
-)+
-geom_col(
-  aes(
-    group = vid_stat_view
-  )
-)+
-theme(
-  legend.position = "bottom",
-  legend.title.position = "top"
-)+
-labs(
-  title = NULL,
-  y = "Video Title",
-  x = "Video Views",
-  fill = "Video Author (channel)"
-) -> plot_most_viewed
 # PLOT MOST LIKED
 mus_clean_data|>
   arrange(vid_stat_like)|>

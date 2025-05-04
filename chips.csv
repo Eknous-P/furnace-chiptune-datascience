@@ -1,0 +1,80 @@
+sys_name,sys_cat,alt_name
+YM2151,FM,OPM
+YM2203,FM,OPN
+YM2608,FM,OPNA
+YM2610,FM,OPNB
+YM2610B,FM,OPNB2
+YM2612,FM,OPN2
+YMF276,FM,OPN2
+YM2413,FM,OPLL
+YM2414,FM,OPZ
+YM3438,FM,OPN2C
+YM3526,FM,OPL
+Y8950,FM,
+YM3812,FM,OPL2
+YMF262,FM,OPL3
+YMF289B,FM,OPL3-L
+ESFM,FM,
+YMF278B,FM,OPL4
+SN76489,Square,
+T6W28,Square,
+AY-3-8910,Square,
+AY-3-8914,Square,
+YM2149(F),Square,
+SAA1099,Square,
+PC Speaker,Square,i8253#no one calls it that
+Pokémon Mini,Square,
+VIC,Square,
+MSM5232,Square,
+D65010G031,Square,PV-1000
+TED,Square,
+Amiga,Sample,
+SegaPCM,Sample,
+Qsound,Sample,
+X1-010,Sample,
+YMZ280B,Sample,
+RF5C68,Sample,
+MSM6258,Sample,
+MSM6295,Sample,
+SNES,Sample,SPC-700#pedants incoming
+K007232,Sample,
+GA20,Sample,
+PCM DAC,Sample,GDAC
+ES5506,Sample,OTTO
+K053260,Sample,
+C140,Sample,
+C219,Sample,
+DS,Sample,NDS
+PC Engine,Wavetable,
+Bubble System WSG,Wavetable,
+SCC,Wavetable,
+SCC+,Wavetable,
+WSG,Wavetable,
+C15,Wavetable,
+C30,Wavetable,
+163,Wavetable,N163
+FDS,Wavetable,
+WonderSwan,Wavetable,
+Virtual Boy,Wavetable,VSU-VUE
+6581,Specialized,
+8580,Specialized,
+PET,Specialized,
+VRC6,Specialized,
+MMC5,Specialized,
+AY8930,Specialized,
+Game Boy,Specialized,
+Lynx,Specialized,
+POKEY,Specialized,
+TIA,Specialized,
+2A03,Specialized,NES
+VERA,Specialized,X16
+ZX Spectrum,Specialized,
+SM8521,Specialized,
+Dummy,Specialized,
+tildearrow Sound Unit,Specialized,"[tT]SU"
+PowerNoise,Specialized,
+Dave,Specialized,
+Bifurcator,Specialized,
+SID2,Specialized,
+SID3,Specialized,
+Supervision,Specialized,

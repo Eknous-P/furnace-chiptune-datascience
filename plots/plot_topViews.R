@@ -1,5 +1,6 @@
+# setup plot data
 mus_clean_data|>
-mutate(
+mutate( # plot hover tooltip
   text = paste(
     "<b>Author:</b> ", vid_auth,
     "\n<b>Title:</b> ", vid_title,
@@ -19,17 +20,13 @@ ggplot(
     id = vid_id,
   )
 )+
-scale_y_discrete(
+scale_y_discrete( # trim titles to 20 chars
   labels = as_function(~ strtrim(.,20))
 )+
 geom_col(
   aes(
     group = vid_stat_view
   )
-)+
-theme(
-  legend.position = "bottom",
-  legend.title.position = "top"
 )+
 labs(
   title = NULL,
@@ -43,6 +40,7 @@ ggplotly(
   dynamic_axes = TRUE,
   tooltip = "text"
 )%>%
+# js function to open the video when clicked on it
 onRender( # TODO: fix
   "
   function (el, x, data) {

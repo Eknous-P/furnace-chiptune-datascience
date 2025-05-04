@@ -23,6 +23,8 @@ library(htmlwidgets)
 source("cleaner.R")
 # source("chipHandler.R")
 source("plots/plot_topViews.R")
+source("plots/plot_topLikes.R")
+source("plots/plot_likeViewRatio.R")
 library(patchwork)
 
 v <- dim(mus_clean_data)[1]
@@ -41,8 +43,11 @@ there are `r v` videos...
 ```{r}
 #| label: plots
 
-# plot_upload_hist | plot_views_high
 plot_topViews
+
+plot_topLikes
+
+plot_likeViewRatio
 
 
 ```

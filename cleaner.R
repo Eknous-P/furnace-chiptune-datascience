@@ -4,6 +4,8 @@ mus_initial_data <- read_delim(
   show_col_types = FALSE
 )|>clean_names()
 
+mus_blacklist <- pull(read_csv(file = "blacklist", col_names = 0), X1)
+
 mus_clean_data <- mus_initial_data|>
   mutate(
     vid_uploaddate = as.Date(vid_uploaddate),
@@ -13,12 +15,8 @@ mus_clean_data <- mus_initial_data|>
   filter(
     vid_uploaddate > as.Date("2021-12-31") # remove videos from before furnace v0.2 released
   )|>
-  filter( # TODO: move to a file
-    !(vid_id %in% c(
-      "_67sF4onNQM",
-      "ZqJC7XBihm0",
-      "Iu4Gu3ldUr8"
-    ))
+  filter(
+    !(vid_id %in% mus_blacklist)           # remove blacklist videos
   )|>
   arrange(vid_uploaddate)|>                # arrange by upload date
   mutate(n = row_number(), .before=vid_id) # index chronologically

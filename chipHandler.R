@@ -32,7 +32,7 @@ for (i in 1:dim(chips)[1]) {
 
 chip_usage_data <- tibble()
 mus_chips_data_permonth <- mus_chips_data|>
-group_by(vid_uploaddate = floor_date(vid_uploaddate, "2 months"))|>
+group_by(vid_uploaddate = floor_date(vid_uploaddate, "1 month"))|>
 summarize(across(starts_with("has_"),sum))
 
 for (i in 1:dim(chips)[1]) {

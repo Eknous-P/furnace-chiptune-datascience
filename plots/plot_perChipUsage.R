@@ -8,6 +8,11 @@ ggplot(
 )+
 geom_path(
   alpha=.9
+)+
+labs(
+  x = "Year",
+  y = "Usage Count",
+  color = "Chip"
 ) -> plot_perChip
 
 ggplotly(

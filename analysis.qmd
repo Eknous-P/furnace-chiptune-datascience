@@ -52,9 +52,11 @@ Kinda sad that the highest ratio comes from the lowest stats.<br>
 I guess it shows who has the most loyal audience?
 
 # The Chips
-
+**!!!**
 ```{r}
 plot_perChip
 ```
 
+The ESFM and Virtual Boy peaks around 2024 correspond to the ESFM and VB demo song contests.<br>
+The most used chip is (as expected) the YM2612. Of course it is, it's the default!
 

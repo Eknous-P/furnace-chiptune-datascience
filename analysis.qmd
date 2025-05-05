@@ -54,6 +54,7 @@ I guess it shows who has the most loyal audience?
 # The Chips
 **!!!**
 ```{r}
+#| label: perChipUsage
 plot_perChip
 ```
 

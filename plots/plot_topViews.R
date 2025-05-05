@@ -41,15 +41,8 @@ ggplotly(
   tooltip = "text"
 )%>%
 # js function to open the video when clicked on it
-onRender( # TODO: fix
-  "
-  function (el, x, data) {
-    el.on('plotly_click', function(d) {
-      console.log(d)
-      console.log(data)
-    })
-  }
-  ", data = data_frame (
+onRender(
+  plot_click_handler, data = data_frame (
     id = data_topViews$vid_id
   )
 )-> plot_topViews

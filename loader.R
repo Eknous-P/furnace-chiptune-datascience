@@ -1,3 +1,7 @@
+# plot click handler (opens a video)
+plot_click_handler <- readLines("plot_click.js")|>stri_flatten(collapse="\n")
+
+# raw playlist data
 mus_initial_data <- read_delim(
   "./data.csv",
   delim="/",

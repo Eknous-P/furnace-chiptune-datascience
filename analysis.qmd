@@ -20,7 +20,7 @@ library(rlang)
 library(plotly)
 library(htmlwidgets)
 
-source("cleaner.R")
+source("loader.R")
 source("chipHandler.R")
 source("plots/plot_topViews.R")
 source("plots/plot_topLikes.R")

@@ -16,9 +16,6 @@ library(readr)
 library(janitor)
 library(lubridate)
 library(stringi)
-library(rlang)
-library(plotly)
-library(htmlwidgets)
 
 source("loader.R")
 

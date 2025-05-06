@@ -9,8 +9,15 @@ ggplot(
 geom_path(
   alpha=.9
 )+
+scale_x_date(
+  breaks = chip_usage_data$date,
+  date_labels="%b '%y"
+)+
+theme(
+  axis.text.x=element_text(angle=90)
+)+
 labs(
-  x = "Year",
+  x = "Month/Year",
   y = "Usage Count",
   color = "Chip"
 ) -> plot_perChip

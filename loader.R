@@ -8,7 +8,7 @@ mus_initial_data <- read_delim(
   show_col_types = FALSE
 )|>clean_names()
 
-mus_blacklist <- pull(read_csv(file = "blacklist", col_names = 0), X1)
+mus_blacklist <- pull(read_csv(file = "blacklist", col_names = 0, comment = "#"), X1)
 
 mus_clean_data <- mus_initial_data|>
   mutate(
@@ -25,8 +25,9 @@ mus_clean_data <- mus_initial_data|>
   arrange(vid_uploaddate)|>                # arrange by upload date
   mutate(n = row_number(), .before=vid_id) # index chronologically
 
-searchfor_title <- function (t) mus_clean_data|>filter(stri_detect_regex(vid_title, t))
-
+searchin.id <- function (t,d=mus_clean_data) d|>filter(stri_detect_regex(vid_id, t))
+searchin.title <- function (t,d=mus_clean_data) d|>filter(stri_detect_regex(vid_title, t))
+searchin.desc <- function (t,d=mus_clean_data) d|>filter(stri_detect_regex(vid_desc, t))
 # TODO: remove more videos
 # maybe consult server
 

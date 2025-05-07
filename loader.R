@@ -11,9 +11,7 @@ mus_initial_data <- read_delim(
   DATA_FILE,
   delim="/",
   show_col_types = FALSE
-)|>
-drop_na()|> # probably errors in scraping
-clean_names()
+)|>clean_names()
 
 mus_blacklist <- pull(read_csv(file = "blacklist", col_names = 0, comment = "#"), X1)
 
@@ -21,7 +19,10 @@ mus_clean_data <- mus_initial_data|>
   mutate(
     vid_uploaddate = as.Date(vid_uploaddate),
     vid_stat_length = seconds(period(vid_stat_length)),
-    vid_desc = replace_na(vid_desc,"")
+    vid_desc = replace_na(vid_desc, ""),
+    vid_stat_view = replace_na(vid_stat_view, 0),
+    vid_stat_like = replace_na(vid_stat_like, 0),
+    vid_stat_length = replace_na(vid_stat_length, period(0))
   )|>
   filter(
     vid_uploaddate > as.Date("2021-12-31") # remove videos from before furnace v0.2 released

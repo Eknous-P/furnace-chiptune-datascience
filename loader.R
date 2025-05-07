@@ -1,9 +1,14 @@
+DATA_FILE = "./data.csv"
+
 # plot click handler (opens a video)
 plot_click_handler <- readLines("plot_click.js")|>stri_flatten(collapse="\n")
 
+# playlist rip timestamp
+playlist_rip_timestamp <- file.info(DATA_FILE)$ctime
+
 # raw playlist data
 mus_initial_data <- read_delim(
-  "./data.csv",
+  DATA_FILE,
   delim="/",
   show_col_types = FALSE
 )|>clean_names()

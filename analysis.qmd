@@ -61,6 +61,10 @@ plot_perChip
 The ESFM and Virtual Boy peaks around 2024 correspond to the ESFM and VB demo song contests.<br>
 The most used chip is (as expected) the YM2612. Of course it is, it's the default!
 
+And we can plot the correlation plot!
 
+```{r}
+# TODO: CORR PLOT
+```
 
 [^1]: This graph is not representative of all videos, as some may not include chip names in the title

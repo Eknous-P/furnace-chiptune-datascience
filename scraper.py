@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
 
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
@@ -11,7 +12,7 @@ import csv
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
 ASH_PLAYLIST_ID = "PLM98E7f5OROYhVKUz15lLpacLiQqmMU-v"
-ASH_PLAYLIST_LEN = int(input("VERIFY THE PLAYLIST LENGTH AT https://www.youtube.com/playlist?list={0}: ".format(ASH_PLAYLIST_ID)))
+ASH_PLAYLIST_LEN = 0
 
 CREDENTIALS_FILE = "secrets/client_secret_file.json"
 OUTPUT_FILE = "data.csv"
@@ -70,7 +71,14 @@ class api:
     return response
 
 
-if __name__ == "__main__":
+def main():
+  if (sys.argv[1] == "FORCE_SUCCESS"):
+    return;
+  elif (int(sys.argv[1])>0):
+    ASH_PLAYLIST_LEN = int(sys.argv[1])
+  else:
+    ASH_PLAYLIST_LEN = int(input("VERIFY THE PLAYLIST LENGTH AT https://www.youtube.com/playlist?list={0} : ".format(ASH_PLAYLIST_ID)))
+
   yt = api(CREDENTIALS_FILE)
   yt.auth()
   nextPage=""
@@ -128,7 +136,7 @@ if __name__ == "__main__":
         v_likes      = i["statistics"]["likeCount"]
         v_len        = i["contentDetails"]["duration"]
       except KeyError:
-        print("weird keyerror")
+        print("weird keyerror at {0}".format(i))
       print("writing csv of video id {0}".format(v_id))
       print(("VIDEO DETAILS FOR {0}:\n"+
         " title: {1}\n"+
@@ -157,5 +165,8 @@ if __name__ == "__main__":
         v_len
       ])
 
-logfile.close()
-csvfile.close()
+  logfile.close()
+  csvfile.close()
+
+if __name__ == "__main__":
+  main()

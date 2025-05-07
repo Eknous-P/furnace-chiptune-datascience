@@ -13,6 +13,8 @@ for (i in 1:dim(chips)[1]) {
   mus_chips_data|>
   mutate(
     "has_{curChip}" := replace_na(Reduce("|", list(
+      # ISSUE
+      # COVER SRCS CONTIANING X CHIP COUNT AS USING X CHIP
       stri_detect_regex(vid_title, curChip),
       stri_detect_regex(vid_title, chips$alt_name[i])
       # furnace explanations in the desc break this, disabling

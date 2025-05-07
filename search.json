@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "sources.html",
+    "href": "sources.html",
+    "title": "Sources",
+    "section": "",
+    "text": "The videos come from AshKirby’s impressive playlist: \n\n\nData has been pulled with a Python script, using Google’s YouTube APIs"
+  },
+  {
+    "objectID": "TODO.html",
+    "href": "TODO.html",
+    "title": "general:",
+    "section": "",
+    "text": "general:\n\ngive site name (not fur-cp-ds)\nmore cleanup (duplicates, non-music)\n\n\n\nhome\n\ndo\n\n\n\ntrends\n\nget cover srcs (games, songs, albums etc)\n\n\n\nabout\n\ndo"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "When Furnace 0.2 uh uhhhhhhhhhhh\nvidéos\n\n\n\n\n\n\nThis website contains uhjhhhhhhhhhhhh"
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Data Analysis",
+    "section": "",
+    "text": "The top 20 most viewed videos are:\n\n\n\n\n\n\nAnd the top 20 most liked are:\n\n\n\n\n\n\nObviously the most viewed videos will be the most liked.\nIf we plot by the like / view ratio:\n\n\n\n\n\n\nKinda sad that the highest ratio comes from the lowest stats. I guess it shows who has the most loyal audience?"
+  },
+  {
+    "objectID": "analysis.html#footnotes",
+    "href": "analysis.html#footnotes",
+    "title": "Data Analysis",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis graph is not representative of all videos, as some may not include chip names in the title↩︎"
+  }
+]

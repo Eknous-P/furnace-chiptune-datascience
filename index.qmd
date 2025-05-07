@@ -1,5 +1,5 @@
 ---
-title: "fur-ct-ds"
+title: "Home"
 execute:
   echo: false
   message: false
@@ -16,17 +16,27 @@ library(readr)
 library(janitor)
 library(lubridate)
 library(stringi)
+library(plotly)
 
 source("loader.R")
-
-v <- dim(mus_clean_data)[1]
+source("plots/plot_monthlyVideos.R")
 ```
 
-# Top
+When [Furnace](https://github.com/tildearrow/furnace) 0.2 uh
+uhhhhhhhhhhh
 
-furnace chiptune blah blah blah...
+vidéos
 
-this data blah blah blah...
+```{r}
+plot_monthlyVideos
+```
 
-there are `r v` videos... (last scrape: `r playlist_rip_timestamp`)
+This website contains uhjhhhhhhhhhhhh
+
+
+<!-- furnace chiptune blah blah blah... -->
+
+<!-- this data blah blah blah... -->
+
+<!-- there are `r video_count` videos... (last scrape: `r playlist_rip_timestamp`) -->
 

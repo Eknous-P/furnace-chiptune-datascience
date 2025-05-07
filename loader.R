@@ -11,7 +11,9 @@ mus_initial_data <- read_delim(
   DATA_FILE,
   delim="/",
   show_col_types = FALSE
-)|>clean_names()
+)|>
+drop_na()|> # probably errors in scraping
+clean_names()
 
 mus_blacklist <- pull(read_csv(file = "blacklist", col_names = 0, comment = "#"), X1)
 
@@ -29,6 +31,8 @@ mus_clean_data <- mus_initial_data|>
   )|>
   arrange(vid_uploaddate)|>                # arrange by upload date
   mutate(n = row_number(), .before=vid_id) # index chronologically
+
+video_count <- dim(mus_clean_data)[1]
 
 searchin.id <- function (t,d=mus_clean_data) d|>filter(stri_detect_regex(vid_id, t))
 searchin.title <- function (t,d=mus_clean_data) d|>filter(stri_detect_regex(vid_title, t))
